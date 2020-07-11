@@ -50,22 +50,37 @@ namespace BANK_ACCOUNT
         //======================= METHODS ======================//
         public void PrintInformation()
         {
-
+            Console.WriteLine(accountNumber);
+            Console.WriteLine(owner);
+            Console.WriteLine(balance);
+            Console.WriteLine(authorizedOverdraft);
         }
 
-        public void Credit(float _string)
+        public void Credit(float _amount)
         {
-
+            if (_amount > 0 && (float.MaxValue - balance >= _amount))
+            {
+                balance += _amount;
+                Console.WriteLine("The new balance is : " + balance);
+            }
+            else
+            {
+                Console.WriteLine("Can't proceed to this credit");
+            }
         }
 
         public bool Debit(float _amount)
         {
-            return true;
+            if ((_amount > 0) && (float.MinValue + _amount >= balance) && (balance - _amount >= authorizedOverdraft))
+            {
+                balance -= _amount;
+            }
+            return false;
         }
 
         public bool Transfer(BankAccount _account, float _amount)
         {
-            return true;
+            return false;
         }
 
         public bool balanceIsHigher(BankAccount _account)
