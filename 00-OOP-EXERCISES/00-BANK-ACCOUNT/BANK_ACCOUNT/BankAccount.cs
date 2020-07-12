@@ -56,6 +56,9 @@ namespace BANK_ACCOUNT
         }
 
         //======================= METHODS ======================//
+        /// <summary>
+        /// This method print all the information (fields) about the object
+        /// </summary>
         public void PrintInformation()
         {
             Console.WriteLine(accountNumber);
@@ -64,6 +67,11 @@ namespace BANK_ACCOUNT
             Console.WriteLine(authorizedOverdraft);
         }
 
+        /// <summary>
+        /// This method add (if possible) the given amount on the current bank account
+        /// </summary>
+        /// <param name="_amount"></param>
+        /// <returns>bool</returns>
         public bool Credit(float _amount)
         {
             if (_amount < 0)
@@ -74,6 +82,11 @@ namespace BANK_ACCOUNT
             return true;
         }
 
+        /// <summary>
+        /// This method substitute (if possible) the given amount on the current bank account
+        /// </summary>
+        /// <param name="_amount"></param>
+        /// <returns>bool</returns>
         public bool Debit(float _amount)
         {
 
@@ -85,6 +98,12 @@ namespace BANK_ACCOUNT
             return true;
         }
 
+        /// <summary>
+        /// This method transfer (if possible) the given amount of monney on the given bamk account
+        /// </summary>
+        /// <param name="_account"></param>
+        /// <param name="_amount"></param>
+        /// <returns>bool</returns>
         public bool Transfer(BankAccount _account, float _amount)
         {
             float _accountBalance = _account.Balance;
@@ -101,6 +120,13 @@ namespace BANK_ACCOUNT
             return true;
         }
 
+        /// <summary>
+        /// This method returns a boolean
+        /// If the current balance is higher than the given account balance : returns true
+        /// Else return false
+        /// </summary>
+        /// <param name="_account"></param>
+        /// <returns>bool</returns>
         public bool thisBalanceIsHigher(BankAccount _account)
         {
             return (balance > _account.Balance);
