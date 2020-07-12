@@ -30,22 +30,30 @@ namespace BANK_ACCOUNT
         /// <summary>
         /// acccountNumber getter
         /// </summary>
-        public string AccountNumber { get; }
+        public string AccountNumber => accountNumber;
 
         /// <summary>
         /// owner getter
         /// </summary>
-        public string Owner { get; }
+        public string Owner => owner;
 
         /// <summary>
-        /// balance getter and setter
+        /// balance getter & setter
         /// </summary>
-        public string Balance { get; set; }
+        public float Balance
+        {
+            get => balance;
+            set => balance = value;
+        }
 
         /// <summary>
-        /// authorizedOverdraft getter and setter
+        /// authorizedOverdraft getter & setter
         /// </summary>
-        public string AuthorizedOverdraft { get; set; }
+        public float AuthorizedOverdraft
+        {
+            get => authorizedOverdraft;
+            set => authorizedOverdraft = value;
+        }
 
         //======================= METHODS ======================//
         public void PrintInformation()
@@ -56,36 +64,46 @@ namespace BANK_ACCOUNT
             Console.WriteLine(authorizedOverdraft);
         }
 
-        public void Credit(float _amount)
+        public bool Credit(float _amount)
         {
-            if (_amount > 0 && (float.MaxValue - balance >= _amount))
-            {
-                balance += _amount;
-                Console.WriteLine("The new balance is : " + balance);
-            }
-            else
-            {
-                Console.WriteLine("Can't proceed to this credit");
-            }
+            if (_amount < 0)
+                return false;
+            if (float.MaxValue - balance < _amount)
+                return false;
+            balance += _amount;
+            return true;
         }
 
         public bool Debit(float _amount)
         {
-            if ((_amount > 0) && (float.MinValue + _amount >= balance) && (balance - _amount >= authorizedOverdraft))
-            {
-                balance -= _amount;
-            }
-            return false;
+
+            if (float.MinValue + _amount < balance)
+                return false;
+            if (balance - _amount < authorizedOverdraft)
+                return false;
+            balance -= _amount;
+            return true;
         }
 
         public bool Transfer(BankAccount _account, float _amount)
         {
-            return false;
+            float _accountBalance = _account.Balance;
+            if (_amount <= 0)
+                return false;
+            if (float.MaxValue - _accountBalance < _amount)
+                return false;
+            if (float.MinValue + _amount < balance)
+                return false;
+            if (balance - _amount < authorizedOverdraft)
+                return false;
+            _account.Credit(_amount);
+            balance -= _amount;
+            return true;
         }
 
-        public bool balanceIsHigher(BankAccount _account)
+        public bool thisBalanceIsHigher(BankAccount _account)
         {
-            return true;
+            return (balance > _account.Balance);
         }
     }
 }
