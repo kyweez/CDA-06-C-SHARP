@@ -43,7 +43,15 @@ namespace BANK_ACCOUNT
         public float Balance
         {
             get => balance;
-            set => balance = value;
+            set
+            {
+                if (value < authorizedOverdraft)
+                {
+                    Console.WriteLine("Can't set a value under the authorized overdraft");
+                    return;
+                }
+                balance = value;
+            }
         }
 
         /// <summary>
@@ -52,7 +60,20 @@ namespace BANK_ACCOUNT
         public float AuthorizedOverdraft
         {
             get => authorizedOverdraft;
-            set => authorizedOverdraft = value;
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("The authorized overdraft must be positive");
+                    return;
+                }
+                if (value > balance)
+                {
+                    Console.WriteLine("Can't set an authorized overdraft");
+                    return;
+                }
+                authorizedOverdraft = (value * -1);
+            }
         }
 
         //======================= METHODS ======================//
