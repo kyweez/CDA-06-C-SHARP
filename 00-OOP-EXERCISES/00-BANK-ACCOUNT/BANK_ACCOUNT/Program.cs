@@ -16,8 +16,19 @@ namespace BANK_ACCOUNT
 
             Console.WriteLine("\x1b[36mSetters testing :");
             Console.WriteLine("=================\x1b[0m");
-            account_aurel.Balance = 20000.123f;
-            account_aurel.AuthorizedOverdraft = 700; 
+            Console.WriteLine("\x1b[35maccount_aurel.Balance = 20000f;");
+            Console.WriteLine("account_aurel.AuthorizedOverdraft = 700f;\x1b[0m");
+            account_aurel.Balance = 20000f;
+            account_aurel.AuthorizedOverdraft = 700f;
+            Console.WriteLine("\n---------------------------------------------------------------------\n");
+
+            Console.WriteLine("\x1b[36mSetters testing (with errors) :");
+            Console.WriteLine("===============================\x1b[0m");
+            Console.WriteLine("\x1b[35maccount_mike.Balance = -20000f;\x1b[31m");
+            account_mike.Balance = -20000f;
+            Console.WriteLine("\x1b[35maccount_mike.AuthorizedOverdraft = -700f;\x1b[31m");
+            account_mike.AuthorizedOverdraft = -700f;
+            Console.WriteLine("\x1b[0m\n---------------------------------------------------------------------\n");
         }
     }
 }
