@@ -65,9 +65,9 @@ namespace BANK_ACCOUNT
                     Console.WriteLine("The authorized overdraft must be positive");
                     return;
                 }
-                if (value > balance)
+                if ((value * -1) > balance)
                 {
-                    Console.WriteLine("Can't set an authorized overdraft");
+                    Console.WriteLine("Can't set this authorized overdraft because the balance is too low");
                     return;
                 }
                 authorizedOverdraft = (value * -1);
@@ -80,10 +80,10 @@ namespace BANK_ACCOUNT
         /// </summary>
         public void PrintInformation()
         {
-            Console.WriteLine(accountNumber);
-            Console.WriteLine(owner);
-            Console.WriteLine(balance);
-            Console.WriteLine(authorizedOverdraft);
+            Console.WriteLine("Account number______ : " + accountNumber);
+            Console.WriteLine("Owner_______________ : " + owner);
+            Console.WriteLine("Balance_____________ : " + balance);
+            Console.WriteLine("Authorized overdraft : " + authorizedOverdraft);
         }
 
         /// <summary>
