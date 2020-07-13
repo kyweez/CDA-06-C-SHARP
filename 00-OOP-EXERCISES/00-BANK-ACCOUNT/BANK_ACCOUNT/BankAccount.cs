@@ -108,8 +108,7 @@ namespace BANK_ACCOUNT
         /// <returns>bool</returns>
         public bool Debit(float _amount)
         {
-
-            if (float.MinValue + _amount < balance)
+            if (_amount < 0)
                 return false;
             if (balance - _amount < authorizedOverdraft)
                 return false;
@@ -129,8 +128,6 @@ namespace BANK_ACCOUNT
             if (_amount <= 0)
                 return false;
             if (float.MaxValue - _accountBalance < _amount)
-                return false;
-            if (float.MinValue + _amount < balance)
                 return false;
             if (balance - _amount < authorizedOverdraft)
                 return false;
