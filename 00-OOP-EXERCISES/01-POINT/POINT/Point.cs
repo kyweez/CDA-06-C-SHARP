@@ -54,12 +54,10 @@
         public void swapCoordinate()
         {
             int tmp;
-            if (x == int.MinValue || y == int.MinValue)
-                return;
+
             tmp = x;
             x = y;
             y = tmp;
-
         }
     }
 }
