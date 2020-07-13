@@ -15,6 +15,7 @@ namespace BANK_ACCOUNT
             Console.WriteLine("\n\x1b[42mVALID TESTS \x1b[0m");
             Console.WriteLine("---------------------------------------------------------------------\n");
 
+
             Console.WriteLine("\x1b[36mSetters testing :");
             Console.WriteLine("=================\x1b[0m");
             Console.WriteLine("\x1b[35maccount_aurel.Balance = 20000f;");
@@ -23,6 +24,7 @@ namespace BANK_ACCOUNT
             account_aurel.AuthorizedOverdraft = 700f;
             Console.WriteLine("\n\x1b[42mVALID TESTS \x1b[0m");
             Console.WriteLine("---------------------------------------------------------------------\n");
+
 
             Console.WriteLine("\x1b[36mSetters testing (with errors) :");
             Console.WriteLine("===============================\x1b[0m");
@@ -39,6 +41,7 @@ namespace BANK_ACCOUNT
             Console.WriteLine("\n\x1b[0m\x1b[42mVALID TESTS \x1b[0m");
             Console.WriteLine("---------------------------------------------------------------------\n");
 
+
             Console.WriteLine("\x1b[36mPrint information :");
             Console.WriteLine("===================\x1b[0m");
             Console.WriteLine("\x1b[35maccount_aurel.PrintInformation();\x1b[32m");
@@ -47,6 +50,7 @@ namespace BANK_ACCOUNT
             account_mike.PrintInformation();
             Console.WriteLine("\n\x1b[0m\x1b[42mVALID TESTS \x1b[0m");
             Console.WriteLine("---------------------------------------------------------------------\n");
+
 
             Console.WriteLine("\x1b[36mCredit test :");
             Console.WriteLine("=============\x1b[0m");
@@ -96,6 +100,7 @@ namespace BANK_ACCOUNT
             Console.WriteLine("\n\x1b[0m\x1b[42mVALID TESTS \x1b[0m");
             Console.WriteLine("---------------------------------------------------------------------\n");
 
+
             Console.WriteLine("\x1b[36mDebit test :");
             Console.WriteLine("=============\x1b[0m");
             Console.WriteLine("\x1b[44mError case 1 : value < 0 : \x1b[0m");
@@ -143,7 +148,6 @@ namespace BANK_ACCOUNT
                 Console.WriteLine("Can't debit with this amount");
             Console.WriteLine("\x1b[35m\naccount_aurel.PrintInformation();\x1b[32m");
             account_aurel.PrintInformation();
-            Console.WriteLine("\n\x1b[0m\x1b[42mVALID TESTS \x1b[0m");
             Console.WriteLine("\x1b[0m\n\x1b[44mValid test case 4 : \x1b[0m");
             Console.WriteLine("\x1b[35maccount_aurel.PrintInformation();\x1b[32m");
             account_aurel.PrintInformation();
@@ -161,6 +165,37 @@ namespace BANK_ACCOUNT
             account_aurel.PrintInformation();
             Console.WriteLine("\n\x1b[0m\x1b[42mVALID TESTS \x1b[0m");
             Console.WriteLine("---------------------------------------------------------------------\n");
+
+
+            Console.WriteLine("\x1b[36mTransfer test :");
+            Console.WriteLine("===============\x1b[0m");
+            Console.WriteLine("\x1b[35maccount_aurel.Credit(50000);\x1b[32m");
+            account_aurel.Credit(50000);
+            Console.WriteLine("\x1b[35maccount_aurel.PrintInformation();\x1b[32m");
+            account_aurel.PrintInformation();
+            Console.WriteLine("\n\x1b[35maccount_mike.PrintInformation();\x1b[32m");
+            account_mike.PrintInformation();
+            Console.WriteLine("\n\x1b[35maccount_aurel.Transfer(account_mike, 22200);\x1b[32m");
+            account_aurel.Transfer(account_mike, 22200);
+            Console.WriteLine("\x1b[35maccount_aurel.PrintInformation();\x1b[32m");
+            account_aurel.PrintInformation();
+            Console.WriteLine("\n\x1b[35maccount_mike.PrintInformation();\x1b[32m");
+            account_mike.PrintInformation();
+            Console.WriteLine("\n\x1b[0m\x1b[42mVALID TESTS \x1b[0m");
+            Console.WriteLine("\x1b[0m---------------------------------------------------------------------\n");
+
+            Console.WriteLine("\x1b[36mHighest balance test :");
+            Console.WriteLine("======================\x1b[0m");
+            Console.WriteLine("\x1b[35maccount_aurel.PrintInformation();\x1b[32m");
+            account_aurel.PrintInformation();
+            Console.WriteLine("\n\x1b[35maccount_mike.PrintInformation();\x1b[32m");
+            account_mike.PrintInformation();
+            Console.WriteLine("\n\x1b[35mif (account_aurel.thisBalanceIsHigher(account_mike))\x1b[32m");
+            Console.WriteLine("\x1b[35m    Console.WriteLine(\"Aurel is richer than Mike\");\x1b[32m");
+            if (account_aurel.thisBalanceIsHigher(account_mike))
+                Console.WriteLine("Aurel is richer than Mike");
+            Console.WriteLine("\n\x1b[0m\x1b[42mVALID TESTS \x1b[0m");
+            Console.WriteLine("\x1b[0m---------------------------------------------------------------------\n");
         }
     }
 }
