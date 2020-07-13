@@ -1,14 +1,11 @@
-# Bank account
-
-A (simplified) bank account is characterized by:
-* an unique number
-* the name of its owner
-* his balance (amount remaining on the account): it can be negative
-* the amount of authorized overdraft : the balance does not can go below.
-
-We give this class the behaviors
-* Give a text message representation of all its information
-* credit an amount provided
-* debit the balance from an amount provided, but be careful "flag" (booleen) will indicate if the operation could be carried out
-* transfer an amount from the current account to another account; same remark as for the previous paragraph.
-* compare the balance of the current object with the balance of another account provided, the result will be a boolean
+# Point
+A geometric point in a two-dimensional area is characterized by its abscissa -X- and its ordinate -Y-, real numbers.   
+## Several behaviors are assigned to each point: 
+*	Build either without information (point 0.0), or with a value for each coordinate. 
+*	Indicate its position (abscissa and ordinate).
+*	Move around by changing abscissa and ordinate. 
+*	Give a textual representation by indicating the values of its contact information. 
+*	Build a symmetrical point in relation to the ordinate axis. 
+*	Build a symmetrical point in relation to the abscissa axis. 
+*	Build a symmetrical point from the original. 
+*	Swap your coordinates (symmetry compared to the Ox,Oy axis bissectrice)
