@@ -1,0 +1,7 @@
+﻿namespace POINT
+{
+    class Point
+    {
+
+    }
+}
