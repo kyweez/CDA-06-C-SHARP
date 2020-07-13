@@ -20,7 +20,7 @@
         }
 
         //======================= METHODS ======================//
-        public override string ToString() => ("(" + x + ";" + y + ")");
+        public override string ToString() => ("(" + x + " ; " + y + ")");
 
         public void PrintCoordinate() => System.Console.WriteLine("Point coordinates : " + this.ToString());
 
@@ -51,7 +51,7 @@
             return new Point(-x, -y);
         }
 
-        public void swapCoordinate()
+        public void SwapCoordinate()
         {
             int tmp;
 
