@@ -2,10 +2,6 @@
 {
     public class Fraction
     {
-
-
-        //===================== ATTRIBUTES =====================//
-        private int numerator;
         private int denominator;
 
         //===================== CONSTRUCTORS ===================//
@@ -30,6 +26,19 @@
         }
 
         //================== GETTERS & SETTERS =================//
+        public int Numerator { get; }
+        
+        public int Denominator
+        {
+            get => denominator;
+
+            set
+            {
+                if (value == 0)
+                    return;
+                denominator = value;
+            }
+        }
 
         //======================= METHODS ======================//
         public override string ToString()
